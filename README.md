@@ -1,223 +1,672 @@
-# Nexora Marketplace — PC Hardware E-Commerce Platform
+# ⚡ Nexora Marketplace
 
-**Your Marketplace for PC Hardware & Technology.** A production-style, full-stack marketplace built with **Node.js, Express, and PostgreSQL (Supabase)**, where buyers shop premium PC hardware from **trusted, approved sellers** and an **admin** manages the whole platform. Prices throughout are in **Pakistani Rupees (PKR)**.
+<p align="center">
+  <strong>Build Better. Game Faster.</strong>
+</p>
 
-It ships with a modern storefront, a complete seller dashboard, a full admin panel, secure session-based authentication, cart/wishlist/checkout, coupons, verified reviews, invoices, product comparison, and analytics — mirroring the core of stores like Daraz, Amazon and Newegg.
+<p align="center">
+  A modern full-stack marketplace for PC hardware, gaming components, computers, monitors and technology accessories.
+</p>
 
----
-
-## Architecture
-
-```
-Nexora Frontend (public/)
-        ↓  (fetch → /api/…)
-Express REST API (routes/ + models/)
-        ↓  (pg connection pool)
-PostgreSQL  ☁️
-        ↓
-Supabase Cloud
-```
-
-The app keeps the existing session-based auth (Express `express-session` + bcrypt). Only the **data layer** changed from SQLite to Supabase PostgreSQL — the frontend and API contract are unchanged.
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18%2B-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/PostgreSQL-Supabase-3ECF8E?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License">
+</p>
 
 ---
 
-## Setup
+## 🚀 About Nexora
 
-### 1. Create a Supabase project
+**Nexora Marketplace** is a full-stack PC hardware marketplace designed around a modern e-commerce experience.
 
-1. Go to https://supabase.com and sign in (or create an account).
-2. Click **New project**, pick a name (e.g. `nexora`), choose a strong database password, and select a region close to you.
-3. Wait for the project to be provisioned (a minute or two).
+It connects **buyers, sellers and administrators** through one platform where users can discover, compare and purchase technology products while sellers manage their own stores and administrators control the marketplace.
 
-### 2. Get your PostgreSQL connection string
+From CPUs and GPUs to gaming peripherals, laptops, monitors and networking equipment, Nexora is focused entirely on the world of PC hardware and technology.
 
-1. In your Supabase project, open **Project Settings → Database**.
-2. Under **Connection string**, copy the **URI** connection string. It looks like:
-   ```
-   postgresql://postgres.[PROJECT_REF]:[YOUR_PASSWORD]@aws-0-[region].pooler.supabase.com:5432/postgres
-   ```
-   > Replace `[YOUR_PASSWORD]` with the database password you set in step 1 (the password is never stored by Supabase, so you must paste it in).
+> **One platform. Every component. Infinite builds.**
 
-### 3. Create `.env`
+---
 
-Copy the template and fill in your connection string:
+## ✨ Core Features
+
+### 🛍️ Storefront
+
+* Modern responsive homepage
+* PC hardware categories
+* Featured products
+* Trending products
+* Best sellers
+* Latest arrivals
+* Technology brands
+* Deals and discounts
+* Product search
+* Advanced filtering
+* Sorting and pagination
+* Product recommendations
+* Product comparison
+
+### 🖥️ Product System
+
+Every product can contain:
+
+* Product images
+* Brand
+* Category
+* SKU
+* Price in PKR
+* Discount price
+* Stock
+* Warranty
+* Seller
+* Technical specifications
+* Ratings
+* Verified reviews
+* Related products
+
+Category-specific specifications are supported for hardware such as:
+
+**CPU**
+
+* Cores
+* Threads
+* Clock speed
+* Socket
+* Cache
+* TDP
+
+**GPU**
+
+* VRAM
+* Memory type
+* Memory bus
+* Boost clock
+* Power
+* Ports
+
+**RAM**
+
+* Capacity
+* DDR generation
+* Speed
+* Latency
+
+**SSD**
+
+* Capacity
+* Interface
+* Read/write speed
+* Form factor
+
+---
+
+# 👤 Buyer Experience
+
+Users can register as buyers and access a complete shopping experience.
+
+### Authentication
+
+* Secure registration
+* Login/logout
+* Password hashing with bcrypt
+* Password reset
+* Persistent PostgreSQL sessions
+* Protected user accounts
+
+### Shopping
+
+* Search products
+* Filter products
+* Compare hardware
+* Add to cart
+* Update quantities
+* Remove products
+* Wishlist
+* Apply coupons
+* Checkout
+* Cash on Delivery
+* Demo online payment
+* Order tracking
+* Printable invoices
+
+### Reviews
+
+Only verified buyers can review purchased products.
+
+Reviews support:
+
+* Rating
+* Title
+* Review text
+* Verified buyer badge
+* Average product rating
+
+---
+
+# 🏪 Seller Marketplace
+
+Nexora is not just a storefront.
+
+It is a **multi-vendor marketplace**.
+
+Sellers can create and manage their own stores.
+
+### Seller Dashboard
+
+* Revenue overview
+* Sales analytics
+* Order statistics
+* Product management
+* Inventory management
+* Low-stock alerts
+* Add products
+* Edit products
+* Delete products
+* Seller orders
+* Product reviews
+* Store settings
+* Store description
+* Store logo
+
+### Seller Security
+
+Every seller action is protected by backend ownership checks.
+
+A seller cannot modify or delete another seller's products.
+
+New seller accounts can require administrator approval before becoming active.
+
+---
+
+# 🛡️ Admin Control Center
+
+Administrators have complete marketplace control.
+
+### Dashboard
+
+* Total revenue
+* Monthly revenue
+* Daily revenue
+* Total orders
+* Buyers
+* Sellers
+* Product statistics
+* Sales analytics
+* Order status analytics
+* Top sellers
+* Low-stock products
+
+### Management
+
+**Users**
+
+* Activate/deactivate
+* Promote/demote admins
+
+**Sellers**
+
+* Approve
+* Reject
+* Suspend
+
+**Products**
+
+* Approve
+* Unapprove
+* Delete
+* Manage listings
+
+**Orders**
+
+* Update status
+* Update payment status
+* Tracking numbers
+
+**Reviews**
+
+* Moderate/remove reviews
+
+**Coupons**
+
+* Percentage discounts
+* Fixed discounts
+* Minimum order requirements
+* Usage limits
+* Expiration dates
+* Activate/deactivate
+
+---
+
+# 🔐 Security
+
+Security is built into the backend rather than relying only on frontend restrictions.
+
+### Included
+
+* bcrypt password hashing
+* PostgreSQL session storage
+* Role-based access control
+* Buyer / Seller / Admin authorization
+* Backend ownership validation
+* CSRF protection
+* Input validation
+* Input sanitization
+* Parameterized SQL queries
+* SQL injection protection
+* XSS protection
+* Helmet security headers
+* Content Security Policy
+* Rate limiting on authentication endpoints
+* HTTP-only cookies
+* SameSite cookies
+* Centralized error handling
+* Custom 404 / 500 pages
+
+---
+
+# ☁️ Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │   Nexora Frontend    │
+                    │ HTML • CSS • JS      │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    Express REST API  │
+                    │ Authentication       │
+                    │ Business Logic       │
+                    │ Authorization        │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   PostgreSQL / pg    │
+                    │   Connection Pool    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Supabase Cloud ☁️  │
+                    │   PostgreSQL DB      │
+                    └──────────────────────┘
+```
+
+---
+
+# 🧰 Tech Stack
+
+| Layer             | Technology                      |
+| ----------------- | ------------------------------- |
+| Frontend          | HTML5, CSS3, Vanilla JavaScript |
+| Backend           | Node.js                         |
+| API               | Express.js                      |
+| Database          | PostgreSQL                      |
+| Database Platform | Supabase                        |
+| Database Driver   | node-postgres (`pg`)            |
+| Authentication    | Express Session + bcrypt        |
+| Session Store     | connect-pg-simple               |
+| Validation        | express-validator               |
+| Security          | Helmet, CSRF, rate limiting     |
+| Uploads           | Multer                          |
+| Email             | Nodemailer                      |
+| Package Manager   | npm                             |
+
+---
+
+# 📂 Project Structure
+
+```text
+nexora-marketplace/
+│
+├── server.js
+├── package.json
+├── package-lock.json
+├── .env.example
+├── .gitignore
+│
+├── db/
+│   ├── database.js
+│   ├── schema.sql
+│   ├── migrate.js
+│   └── init.js
+│
+├── models/
+│   ├── user.js
+│   ├── product.js
+│   ├── category.js
+│   ├── cart.js
+│   ├── order.js
+│   ├── review.js
+│   ├── wishlist.js
+│   └── coupon.js
+│
+├── routes/
+│
+├── middleware/
+│   ├── auth.js
+│   ├── error.js
+│   ├── security.js
+│   ├── upload.js
+│   └── validate.js
+│
+├── utils/
+│
+└── public/
+    ├── css/
+    ├── js/
+    └── *.html
+```
+
+---
+
+# ⚡ Quick Start
+
+## 1. Clone
 
 ```bash
-copy .env.example .env     # Windows
-# or
-cp .env.example .env       # macOS / Linux
+git clone https://github.com/YOUR_USERNAME/nexora-marketplace.git
+cd nexora-marketplace
 ```
 
-### 4. Set `DATABASE_URL`
-
-Edit `.env`:
-
-```
-DATABASE_URL=postgresql://postgres.[PROJECT_REF]:[YOUR_PASSWORD]@aws-0-[region].pooler.supabase.com:5432/postgres
-SESSION_SECRET=some-long-random-secret-string
-PORT=3000
-NODE_ENV=development
-```
-
-> **Never commit `.env`.** It is already ignored via `.gitignore`. Never put real credentials in source code.
-
-### 5. Install dependencies
+## 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 6. Run migrations
+## 3. Configure environment
 
-Creates all tables (idempotent — safe to run repeatedly):
+Create `.env` from `.env.example`.
+
+```env
+DATABASE_URL=your_supabase_postgresql_connection_string
+SESSION_SECRET=your_long_random_secret
+PORT=3000
+NODE_ENV=development
+```
+
+> ⚠️ Never commit `.env` or database credentials.
+
+## 4. Run database migration
 
 ```bash
 npm run db:migrate
 ```
 
-### 7. Seed the database
-
-Loads 54 products, 43 categories, demo users, coupons, reviews and orders:
+## 5. Seed Nexora
 
 ```bash
 npm run db:seed
 ```
 
-- Skips automatically if the database already has data (no duplicates).
-- To wipe and reseed: `npm run db:seed -- --force`
+The seed system provides demo categories, products, users, reviews, orders and coupons.
 
-### 8. Start Nexora
+## 6. Start
 
 ```bash
-npm start        # production
-npm run dev      # development (auto-reload)
+npm start
 ```
 
-Then open **http://localhost:3000**.
+Development mode:
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
 
 ---
 
-### Demo accounts
+# 🔑 Demo Accounts
 
-| Role            | Email                    | Password    | Store / status            |
-|-----------------|--------------------------|-------------|---------------------------|
-| Admin           | `admin@nexora.com`       | `admin123`  | —                         |
-| Buyer           | `buyer@nexora.com`       | `buyer123`  | —                         |
-| Seller          | `seller@nexora.com`      | `seller123` | TechVerse Lahore (approved) |
-| Seller          | `gamersden@nexora.com`   | `seller123` | Gamer's Den Karachi (approved) |
-| Seller (demo)   | `pchub@nexora.com`       | `seller123` | PC Hub Islamabad (**pending** — try approving it from the admin panel) |
+| Role               | Email                  | Password    |
+| ------------------ | ---------------------- | ----------- |
+| 👑 Admin           | `admin@nexora.com`     | `admin123`  |
+| 🛒 Buyer           | `buyer@nexora.com`     | `buyer123`  |
+| 🏪 Seller          | `seller@nexora.com`    | `seller123` |
+| 🎮 Seller          | `gamersden@nexora.com` | `seller123` |
+| 🖥️ Pending Seller | `pchub@nexora.com`     | `seller123` |
 
-- **Admin panel** → `/admin.html` (after logging in as the admin).
-- **Seller dashboard** → `/seller.html` (after logging in as a seller).
-
-### Demo coupons
-
-`NEXORA10` (10% off orders over Rs 10,000) · `BUILDER20` (20% off over Rs 50,000) · `FLAT250` (Rs 250 off)
+> Demo credentials are for local development/testing only.
 
 ---
 
-## Features
+# 🎟️ Demo Coupons
 
-### Storefront
-- **Homepage** with hero, featured categories, trending, deals of the week, best sellers, PC components, gaming hardware, latest arrivals, trusted brands, "why Nexora", testimonials and newsletter.
-- **Product listing** with full-text search (title, brand, category, SKU, tags, description, store), filters for category, brand, price, rating, stock, discount and seller, plus **specification filters** (`?spec_socket=AM5`), six sort modes (relevance, newest, top rated, best selling, price ↑/↓) and server-side pagination.
-- **Product detail** with gallery, deep technical specifications, seller card, warranty, low-stock alerts, Buy Now, **verified reviews** (title + badge, buyers only) and related products.
-- **Compare** — add up to 4 products (localStorage) and compare price, rating, stock and specs side by side.
-- **Cart** with AJAX add/update/remove, move-to-wishlist, coupon application, PKR shipping calculation and live totals.
-- **Checkout** supporting **Cash on Delivery** plus a **Demo Online Payment** (simulated card checkout) with free shipping over Rs 25,000.
-- **Wishlist** — persistent, per-user.
-
-### Accounts & auth
-- Register as a **buyer or seller** (sellers supply a store name and require **admin approval**).
-- Login, logout, and password reset with bcrypt-hashed passwords and a persistent **PostgreSQL session store** (`connect-pg-simple`) that survives server restarts.
-- **Account dashboard**: editable profile, password change, order history with live status timeline, downloadable/printable invoices, wishlist and compare.
-
-### Seller dashboard (`/seller.html`)
-- **Overview**: total/month revenue, order counts, pending orders, product counts, low-stock alerts, 7-day revenue chart, top sellers.
-- **Products**: create/edit/delete your own listings with specs, images, discounts and featured flags. New or edited products require **re-approval** before going live. Ownership is enforced on the backend — a seller can never modify another seller's product.
-- **Orders**: view orders containing your items and advance their status — only when the whole order belongs to your store.
-- **Reviews** on your products, and **store settings** (name, description, logo).
-
-### Admin panel (`/admin.html`)
-- **Dashboard**: total/today/month revenue, order counts, buyers/sellers, 7-day chart, orders-by-status, top sellers, low-stock alerts.
-- **Sellers**: approve / reject / suspend seller applications.
-- **Products**: approve, unapprove and delete any listing.
-- **Orders**: update status & payment, add tracking numbers.
-- **Reviews**: moderation (remove any review).
-- **Coupons**: create percent/fixed coupons with minimums, usage limits and expiry; activate/deactivate.
-- **Users**: promote/demote admins, activate/deactivate accounts.
-
-### Security
-- Custom **CSRF protection** (token + `X-CSRF-Token` header on every mutation).
-- Input **validation & sanitization** (XSS-escaped) on every write endpoint.
-- **Parameterized SQL** everywhere (`$1, $2, …` — no string-built queries), safe against injection.
-- **RBAC** middleware guards `/api/admin`, `/api/seller`, and the role pages server-side.
-- Security headers / CSP, per-IP rate limiting on auth endpoints, `httpOnly` + `sameSite` cookies.
-- Central error handling with custom **404 / 500** pages.
+| Coupon      | Discount |
+| ----------- | -------- |
+| `NEXORA10`  | 10%      |
+| `BUILDER20` | 20%      |
+| `FLAT250`   | Rs. 250  |
 
 ---
 
-## API overview
+# 🔌 API Overview
 
-| Area | Routes |
-|------|--------|
-| Auth | `POST /api/auth/register` · `login` · `logout` · `GET /me` · `request-reset` · `reset-password` |
-| Products | `GET /api/products` (search/filter/sort/paginate) · `GET /api/products/brands` · `GET/POST /api/products/:key(/reviews)` |
-| Categories | `GET /api/categories` (tree) · `GET /api/categories/flat` |
-| Cart | `GET/POST /api/cart` · `PUT/DELETE /api/cart/:id` · `POST /api/cart/apply-coupon` |
-| Wishlist | `GET /api/wishlist` · `POST /api/wishlist/toggle` |
-| Orders | `GET/POST /api/orders` · `GET /api/orders/:id` · `POST /api/orders/:id/cancel` · `GET /api/orders/:id/invoice` |
-| Account | `GET/PUT /api/account` · `PUT /api/account/password` |
-| Seller | `/api/seller/overview` · `store` · `products` CRUD · `orders` · `reviews` |
-| Admin | `/api/admin/analytics` · `sellers` · `products` · `orders` · `reviews` · `coupons` · `users` · `categories` |
+### Authentication
+
+```text
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/logout
+GET  /api/auth/me
+POST /api/auth/request-reset
+POST /api/auth/reset-password
+```
+
+### Products
+
+```text
+GET  /api/products
+GET  /api/products/brands
+GET  /api/products/:key
+POST /api/products/:key/reviews
+```
+
+### Categories
+
+```text
+GET /api/categories
+GET /api/categories/flat
+```
+
+### Cart
+
+```text
+GET    /api/cart
+POST   /api/cart
+PUT    /api/cart/:id
+DELETE /api/cart/:id
+POST   /api/cart/apply-coupon
+```
+
+### Wishlist
+
+```text
+GET  /api/wishlist
+POST /api/wishlist/toggle
+```
+
+### Orders
+
+```text
+GET  /api/orders
+POST /api/orders
+GET  /api/orders/:id
+POST /api/orders/:id/cancel
+GET  /api/orders/:id/invoice
+```
+
+### Seller
+
+```text
+/api/seller/overview
+/api/seller/store
+/api/seller/products
+/api/seller/orders
+/api/seller/reviews
+```
+
+### Admin
+
+```text
+/api/admin/analytics
+/api/admin/users
+/api/admin/sellers
+/api/admin/products
+/api/admin/orders
+/api/admin/reviews
+/api/admin/coupons
+/api/admin/categories
+```
 
 ---
 
-## Project structure
+# 📊 Database
 
-```
-nexora-marketplace/
-├── server.js              # App entry point (exports app; listens when run directly)
-├── package.json
-├── .env.example           # Copy to .env and adjust (DATABASE_URL, SESSION_SECRET)
-├── db/
-│   ├── schema.sql         # PostgreSQL schema (migrations)
-│   ├── database.js        # pg connection pool + query helpers
-│   ├── migrate.js         # npm run db:migrate — applies schema.sql
-│   └── init.js            # npm run db:seed — idempotent PostgreSQL seed
-├── models/                # Data layer: product, category, cart, wishlist, order, user, review, coupon
-├── routes/                # Thin Express routers per resource
-├── middleware/            # auth (RBAC), validate, security (CSRF/headers/rate-limit), upload, error
-├── utils/                 # helpers (PKR, spec labels), invoice builder
-└── public/                # Frontend (static HTML + vanilla JS + CSS design system)
-    ├── css/style.css      # Nexora design system
-    ├── js/                # common.js (shared chrome + client lib) + one script per page
-    └── *.html             # index, shop, product, cart, checkout, account, admin, seller, compare, auth, 404, 500
-```
+Nexora uses **PostgreSQL hosted through Supabase**.
 
-## Environment variables (`.env`)
+The database manages:
 
-```
-DATABASE_URL=postgresql://postgres.[PROJECT_REF]:[PASSWORD]@…pooler.supabase.com:5432/postgres
-PORT=3000
-NODE_ENV=development
-SESSION_SECRET=some-long-random-secret
-SHIPPING_FEE=350
-FREE_SHIP_THRESHOLD=25000
-# Payment gateway keys (placeholders — wire real callbacks in production)
-STRIPE_SECRET_KEY=
-JAZZCASH_MERCHANT_ID=
-EASYPAISA_STORE_ID=
-```
+```text
+Users
+  ├── Buyers
+  ├── Sellers
+  └── Admins
 
-## Notes for production
-- Set a strong `SESSION_SECRET` and run behind HTTPS (`NODE_ENV=production` enables secure cookies). Session cookies are `httpOnly` + `sameSite: lax`.
-- The PostgreSQL connection is pooled (`pg`). Pool errors are logged; queries are parameterized.
-- Online card payments are **simulated as paid** for demo purposes; wire the real gateway callbacks to set `payment_status`.
-- Password-reset links are returned in the API response for local testing — connect an email provider to send them instead.
-- Image file uploads use `multer` if installed; otherwise use image URLs.
+Products
+  ├── Categories
+  ├── Sellers
+  ├── Reviews
+  └── Inventory
+
+Orders
+  ├── Order Items
+  ├── Payments
+  └── Status Tracking
+
+Shopping
+  ├── Cart
+  ├── Wishlist
+  └── Coupons
+```
 
 ---
 
-Built as a full-stack e-commerce showcase. All prices in **Pakistani Rupees (PKR)**. Database: **Supabase PostgreSQL**.
+# 💳 Payments
+
+The current checkout supports:
+
+* Cash on Delivery
+* Demo Online Payment
+
+The online card payment flow is **simulated for demonstration purposes**.
+
+Real payment gateway integration can be added later with services such as Stripe, JazzCash or Easypaisa.
+
+---
+
+# 📈 Future Roadmap
+
+* [ ] Real Stripe payment integration
+* [ ] JazzCash integration
+* [ ] Easypaisa integration
+* [ ] Real-time order notifications
+* [ ] Product image storage/CDN
+* [ ] Advanced seller analytics
+* [ ] AI-powered product recommendations
+* [ ] AI PC build assistant
+* [ ] PC compatibility checker
+* [ ] GPU/CPU performance comparison
+* [ ] Production deployment
+* [ ] Automated testing
+* [ ] CI/CD pipeline
+* [ ] PWA/mobile experience
+
+---
+
+# 🧪 Development
+
+Run development mode:
+
+```bash
+npm run dev
+```
+
+Run database migration:
+
+```bash
+npm run db:migrate
+```
+
+Seed database:
+
+```bash
+npm run db:seed
+```
+
+Force reseed:
+
+```bash
+npm run db:seed -- --force
+```
+
+---
+
+# 🌐 Production Notes
+
+Before production deployment:
+
+* Use HTTPS
+* Use a strong `SESSION_SECRET`
+* Set `NODE_ENV=production`
+* Keep `.env` private
+* Configure a real payment gateway
+* Configure a production email provider
+* Configure persistent image storage
+* Review Supabase database security
+* Add automated tests
+* Configure CI/CD
+* Monitor database and application logs
+
+---
+
+# 👨‍💻 Project
+
+**Nexora Marketplace**
+
+A full-stack portfolio project demonstrating:
+
+* REST API development
+* PostgreSQL database design
+* Supabase integration
+* Authentication
+* RBAC
+* Multi-vendor marketplace architecture
+* E-commerce workflows
+* Secure backend development
+* Responsive frontend development
+
+---
+
+<p align="center">
+
+### ⚡ Build Better. Game Faster.
+
+**Nexora Marketplace**
+
+*Your Marketplace for PC Hardware & Technology.*
+
+</p>
+
+<p align="center">
+  <sub>Built with Node.js • Express • PostgreSQL • Supabase • JavaScript</sub>
+</p>
