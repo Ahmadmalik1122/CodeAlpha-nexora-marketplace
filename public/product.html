@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<title>Product — Nexora Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css"></head><body>
+<header class="site" data-chrome-header></header>
+<main class="container section">
+  <div data-breadcrumb class="small muted mb"></div>
+  <div data-product><div class="spinner"></div></div>
+
+  <section class="mt2" data-specs-section hidden>
+    <div class="sec-head"><div><div class="kicker">Technical information</div><h2>Specifications</h2></div></div>
+    <div data-specs></div>
+  </section>
+
+  <section class="mt2" data-reviews-section hidden>
+    <div class="sec-head"><div><div class="kicker">Buyer feedback</div><h2>Ratings &amp; reviews</h2></div></div>
+    <div class="row wrap" style="gap:40px;align-items:flex-start">
+      <div style="flex:1;min-width:280px">
+        <div data-review-list></div>
+      </div>
+      <div style="flex:1;min-width:280px" class="form-card" data-review-form-wrap>
+        <h3 class="mb">Write a review</h3>
+        <div data-review-msg></div>
+        <form data-review-form>
+          <div class="field"><label>Your rating</label>
+            <select name="rating" required><option value="5">★★★★★ Excellent</option><option value="4">★★★★ Good</option><option value="3">★★★ Average</option><option value="2">★★ Poor</option><option value="1">★ Terrible</option></select></div>
+          <div class="field"><label>Review title</label><input name="title" maxlength="120" placeholder="e.g. Great performance"></div>
+          <div class="field"><label>Your review</label><textarea name="comment" rows="4" maxlength="1000" placeholder="Share your experience…"></textarea></div>
+          <button class="btn block" type="submit">Submit review</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt2" data-related-section hidden>
+    <div class="sec-head"><div><div class="kicker">Keep exploring</div><h2>You may also like</h2></div></div>
+    <div class="grid products" data-related></div>
+  </section>
+</main>
+<footer class="site" data-chrome-footer></footer>
+<script src="/js/common.js"></script>
+<script src="/js/product.js"></script>
+</body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Shop premium PC hardware, gaming components, computers, peripherals and technology products from trusted sellers.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<title>Shop PC Hardware — Nexora Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css"></head><body>
+<header class="site" data-chrome-header></header>
+<main class="container section">
+  <div class="sec-head">
+    <div><div class="kicker">Nexora catalog</div><h1 data-heading>All products</h1></div>
+    <div class="small muted" data-result-count></div>
+  </div>
+  <div class="shop">
+    <aside class="filters">
+      <form data-filter-form>
+        <div class="grp">
+          <h4>Search</h4>
+          <input name="q" placeholder="CPUs, GPUs, SSDs, RAM…" data-f="q">
+        </div>
+        <div class="grp">
+          <h4>Category</h4>
+          <div data-cat-filters><div class="spinner"></div></div>
+        </div>
+        <div class="grp">
+          <h4>Brand</h4>
+          <div data-brand-filters><div class="spinner"></div></div>
+        </div>
+        <div class="grp">
+          <h4>Price range (PKR)</h4>
+          <div class="row"><input type="number" name="min" placeholder="Min" min="0" data-f="min"><input type="number" name="max" placeholder="Max" min="0" data-f="max"></div>
+        </div>
+        <div class="grp">
+          <h4>Rating</h4>
+          <select data-f="rating" style="width:auto">
+            <option value="">Any rating</option>
+            <option value="4">4★ &amp; up</option>
+            <option value="3">3★ &amp; up</option>
+            <option value="2">2★ &amp; up</option>
+          </select>
+        </div>
+        <div class="grp">
+          <label class="row aic" style="font-weight:500"><input type="checkbox" style="width:auto" data-f="inStock" value="1"> In stock only</label>
+          <label class="row aic mt" style="font-weight:500"><input type="checkbox" style="width:auto" data-f="onSale" value="1"> On sale / discounted</label>
+        </div>
+        <div class="grp">
+          <h4>Seller</h4>
+          <input name="seller" placeholder="Store name" data-f="seller">
+        </div>
+        <button class="btn block" type="submit">Apply filters</button>
+        <button class="btn ghost block mt" type="button" data-clear>Clear all</button>
+      </form>
+    </aside>
+    <div>
+      <div class="sort-row">
+        <div class="small muted" data-page-info></div>
+        <div class="row aic" style="margin-left:auto;gap:10px"><label style="margin:0">Sort:</label>
+          <select data-sort>
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest</option>
+            <option value="top_rated">Top rated</option>
+            <option value="best_selling">Best selling</option>
+            <option value="price_asc">Price: low to high</option>
+            <option value="price_desc">Price: high to low</option>
+          </select></div>
+      </div>
+      <div class="grid products" data-results><div class="spinner"></div></div>
+      <div class="row aic center mt2" data-pagination style="justify-content:center;gap:8px"></div>
+    </div>
+  </div>
+</main>
+<footer class="site" data-chrome-footer></footer>
+<script src="/js/common.js"></script>
+<script src="/js/shop.js"></script>
+</body></html>
